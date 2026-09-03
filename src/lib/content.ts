@@ -3,7 +3,7 @@
  * Today reads from src/content/*; tomorrow reads Sanity via GROQ with identical signatures.
  */
 
-import type { Service, Faq, Testimonial, GalleryItem, CoverageArea } from "@/types/content";
+import type { Service, Faq, Testimonial, GalleryItem, CoverageArea, AboutPageContent } from "@/types/content";
 
 // ── Local content imports (all data lives here) ────────────────────────
 
@@ -64,4 +64,9 @@ export function getPageContent(name: string) {
   if (name === "about") return aboutPageContent;
   if (name === "process") return processSteps;
   return null;
+}
+
+/** About page content — typed accessor. */
+export function getAboutPageContent(): AboutPageContent | null {
+  return aboutPageContent;
 }

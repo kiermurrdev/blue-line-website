@@ -66,3 +66,10 @@ export interface CoverageArea {
   name: string;
   notes?: string;
 }
+
+/** About page content blocks. */
+export interface AboutPageContent {
+  hero: { title: string; lede: string };
+  story: { heading: string; body: string };
+  values: Array<{ title: string; description: string }>;
+}
