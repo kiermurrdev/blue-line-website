@@ -73,3 +73,22 @@ export interface AboutPageContent {
   story: { heading: string; body: string };
   values: Array<{ title: string; description: string }>;
 }
+
+/** Boat preparation checklist sections. */
+export interface PrepSection {
+  heading: string;
+  items: string[];
+}
+
+export interface BoatPrepGuide {
+  heading: string;
+  lede: string;
+  sections: PrepSection[];
+}
+
+/** Quote process explanation steps. */
+export interface QuoteProcessInfo {
+  heading: string;
+  lede: string;
+  steps: Array<{ title: string; description: string }>;
+}
