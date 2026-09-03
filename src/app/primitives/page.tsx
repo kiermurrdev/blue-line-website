@@ -136,7 +136,7 @@ export default function PrimitivesShowcase() {
               eyebrow="Vessel Type"
               title="Powerboat Transport"
               summary="From 16ft runabouts to 60ft cruisers. Door-to-door marina or storage delivery."
-              href="/services/powerboat-transport"
+              href="/services/powerboat"
             />
             <ServiceCard
               imageSrc="/images/placeholder-sailboat.webp"
@@ -144,7 +144,7 @@ export default function PrimitivesShowcase() {
               eyebrow="Vessel Type"
               title="Sailboat Transport"
               summary="Mast-down and mast-up options. Rigging inspection coordination included."
-              href="/services/sailboat-transport"
+              href="/services/sailboat"
             />
             <ServiceCard
               imageSrc="/images/placeholder-heavy.webp"
@@ -152,7 +152,7 @@ export default function PrimitivesShowcase() {
               eyebrow="Vessel Type"
               title="Heavy &amp; Large Vessel"
               summary="Custom equipment for vessels over 40ft. Hydraulic stretch trailers available."
-              href="/services/heavy-vessel-transport"
+              href="/services/heavy-vessel"
             />
           </div>
 
