@@ -1,15 +1,31 @@
 import type { Metadata } from "next";
+import { CoverageSection } from "@/components/sections/CoverageSection";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Coverage Area — Blue Line Marine Transport",
+  title: "Service Area — Blue Line Marine Transport",
+  description: "Blue Line Marine Transport covers 6 states along the East Coast, from New York to Florida. Door-to-door boat hauling and delivery.",
 };
 
-/** Stub page — coverage map + region list added in Phase 2. */
+/** Coverage page — full treatment with map + region list. */
 export default function CoveragePage() {
   return (
-    <div className="mx-auto max-w-container-xl px-4 py-16 md:px-8 md:py-24">
-      <h1 className="mb-8 text-center text-3xl font-bold md:text-5xl">Service Area</h1>
-      <p className="text-center text-steel">Coming in Phase 2.</p>
-    </div>
+    <main id="main" role="main">
+      {/* Hero stub for coverage page */}
+      <section className="bg-navy py-16 md:py-24 lg:py-32">
+        <Container>
+          <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight tracking-tight text-foam">
+            Service Area
+          </h1>
+          <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-steel">
+            We transport boats across the East Coast — from New York to Florida.
+            Enter your location or call us to verify coverage.
+          </p>
+        </Container>
+      </section>
+
+      <CoverageSection />
+    </main>
   );
 }

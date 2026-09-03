@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
+import { GalleryStrip } from "@/components/sections/GalleryStrip";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Gallery — Blue Line Marine Transport",
+  description: "Real job photos from Blue Line Marine Transport. See how we move powerboats, sailboats, and heavy vessels across the East Coast.",
 };
 
-/** Stub page — photo gallery added in Phase 2. */
+/** Gallery page — full photo grid treatment. */
 export default function GalleryPage() {
   return (
-    <div className="mx-auto max-w-container-xl px-4 py-16 md:px-8 md:py-24">
-      <h1 className="mb-8 text-center text-3xl font-bold md:text-5xl">Gallery</h1>
-      <p className="text-center text-steel">Coming in Phase 2.</p>
-    </div>
+    <main id="main" role="main">
+      {/* Hero stub for gallery page */}
+      <section className="bg-navy py-16 md:py-24 lg:py-32">
+        <Container>
+          <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight tracking-tight text-foam">
+            Gallery
+          </h1>
+          <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-steel">
+            Every boat we move is documented — from load to delivery. Photos are added as jobs complete.
+          </p>
+        </Container>
+      </section>
+
+      <GalleryStrip />
+    </main>
   );
 }
