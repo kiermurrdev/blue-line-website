@@ -1,0 +1,40 @@
+/** ImageFrame — wraps next/image with explicit dimensions, alt handling, lazy/eager opt-in. */
+
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+interface ImageFrameProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "alt"> {
+  src: string;
+  alt?: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+  decorative?: boolean;
+}
+
+export function ImageFrame({
+  src,
+  alt,
+  width,
+  height,
+  priority = false,
+  decorative = false,
+  className,
+  ...rest
+}: ImageFrameProps) {
+  const effectiveAlt = decorative ? "" : (alt ?? "");
+
+  return (
+    <div className={cn("overflow-hidden rounded-[6px]", className)} {...rest}>
+      <Image
+        src={src}
+        alt={effectiveAlt}
+        width={width}
+        height={height}
+        priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        className="h-full w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
+      />
+    </div>
+  );
+}
