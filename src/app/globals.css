@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens (DESIGN_SYSTEM.md §2) ─── */
+:root {
+  /* Confirmed brand colors */
+  --color-brand: #0055A5;
+  --color-ink: #231F20;
+
+  /* Proposed — pending owner sign-off */
+  --color-brand-dark: #00417E;
+  --color-navy: #0B1E33;
+  --color-steel: #5A748C;
+  --color-mist: #E9EEF3;
+  --color-foam: #FAFBFC;
+  --color-signal: #FF7A1A;
+  --color-signal-dark: #E05F00;
+
+  /* Surface tokens */
+  --surface-page: var(--color-foam);
+  --surface-section: white;
+  --surface-section-alt: var(--color-mist);
+  --surface-dark: var(--color-navy);
+
+  /* Typography — to be loaded via next/font */
+  --font-display: "Archivo", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Spacing tokens (DESIGN_SYSTEM.md §4) */
+  --container-max: 72rem;
+  --section-padding-y: clamp(4rem, 8vw, 7rem);
+}
+
+/* ─── Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: var(--surface-page);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Focus visible (WCAG 2.1 AA) ─── */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* ─── Skip link ─── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-brand);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ─── Blue line motif (DESIGN_SYSTEM.md §1) ─── */
+.blue-line {
+  display: block;
+  height: 1px;
+  background-color: var(--color-brand);
+}
