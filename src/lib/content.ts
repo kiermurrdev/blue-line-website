@@ -3,7 +3,7 @@
  * Today reads from src/content/*; tomorrow reads Sanity via GROQ with identical signatures.
  */
 
-import type { Service, Faq, Testimonial, GalleryItem, CoverageArea, AboutPageContent } from "@/types/content";
+import type { Service, Faq, Testimonial, GalleryItem, CoverageArea, AboutPageContent, BoatPrepGuide, QuoteProcessInfo } from "@/types/content";
 
 // ── Local content imports (all data lives here) ────────────────────────
 
@@ -14,7 +14,7 @@ import { testimonials } from "@/content/testimonials";
 import { galleryItems } from "@/content/gallery";
 import { coverageAreas } from "@/content/coverage";
 import { aboutPageContent } from "@/content/pages/about";
-import { processSteps } from "@/content/pages/process";
+import { processSteps, boatPrepGuide, quoteProcessInfo } from "@/content/pages/process";
 
 // ── Re-exports (for backwards compat) ─────────────────────────────────
 
@@ -69,4 +69,14 @@ export function getPageContent(name: string) {
 /** About page content — typed accessor. */
 export function getAboutPageContent(): AboutPageContent | null {
   return aboutPageContent;
+}
+
+/** Boat preparation checklist. */
+export function getBoatPrepGuide(): BoatPrepGuide | null {
+  return boatPrepGuide;
+}
+
+/** Quote process explanation. */
+export function getQuoteProcessInfo(): QuoteProcessInfo | null {
+  return quoteProcessInfo;
 }
