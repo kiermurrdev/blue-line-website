@@ -20,7 +20,8 @@ function AccordionItem({ id, title, children }: AccordionItemProps) {
           id={`accordion-heading-${id}`}
           aria-expanded={false}
           aria-controls={`accordion-panel-${id}`}
-          className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold leading-snug text-ink transition-colors duration-150 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand"
+          disabled
+          className="flex w-full cursor-default items-center justify-between gap-4 py-5 text-left font-semibold leading-snug text-ink transition-colors duration-150 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand"
         >
           <span>{title}</span>
           <ChevronIcon />
