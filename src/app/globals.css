@@ -1,6 +1,38 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens (DESIGN_SYSTEM.md §2) ─── */
+/* ─── Tailwind v4 Theme — Design Tokens (DESIGN_SYSTEM.md §2–§3) ─── */
+@theme {
+  /* Brand colors (confirmed from logo) */
+  --color-brand: #0055A5;
+  --color-brand-dark: #00417E;
+
+  /* Neutral palette */
+  --color-ink: #231F20;
+  --color-navy: #0B1E33;
+  --color-steel: #5A748C;
+  --color-mist: #E9EEF3;
+  --color-foam: #FAFBFC;
+
+  /* Accent — CTA only (pending owner confirm) */
+  --color-signal: #FF7A1A;
+  --color-signal-dark: #E05F00;
+
+  /* Surface tokens */
+  --surface-page: var(--color-foam);
+  --surface-section: white;
+  --surface-section-alt: var(--color-mist);
+  --surface-dark: var(--color-navy);
+
+  /* Typography — variable font families loaded via next/font (see layout.tsx) */
+  --font-display: "Archivo Variable", sans-serif;
+  --font-body: "Inter Variable", sans-serif;
+
+  /* Layout tokens (DESIGN_SYSTEM.md §4) */
+  --container-container-xl: 72rem;
+  --spacing-section-rhythm: clamp(4rem, 8vw, 7rem);
+}
+
+/* ─── Design Tokens (DESIGN_SYSTEM.md §2) — fallback / direct use ─── */
 :root {
   /* Confirmed brand colors */
   --color-brand: #0055A5;
@@ -80,4 +112,22 @@ body {
   display: block;
   height: 1px;
   background-color: var(--color-brand);
+}
+
+/* ─── Section rhythm utility (DESIGN_SYSTEM.md §4) ─── */
+.section-rhythm {
+  padding-top: clamp(4rem, 8vw, 7rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+/* ─── prefers-reduced-motion guard (DESIGN_SYSTEM.md §1) ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
