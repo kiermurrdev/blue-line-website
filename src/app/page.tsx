@@ -4,6 +4,9 @@ import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
+import { CoverageSection } from "@/components/sections/CoverageSection";
+import { GalleryStrip } from "@/components/sections/GalleryStrip";
+
 // Owner-confirmed stats (CONTENT_MODEL §3): render only confirmed values
 const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 
@@ -22,21 +25,13 @@ export default function HomePage() {
       {/* Section 4: Process */}
       <ProcessSteps />
 
-      {/* ─── Placeholder slots for future sections ─── */}
-      {/* Section 5: Coverage */}
-      <section className="bg-surface-section" aria-label="Coverage — TODO">
-        <div className="mx-auto max-w-[72rem] px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm text-steel">TODO(owner-content) — Coverage section</p>
-        </div>
-      </section>
+      {/* Section 5: Coverage Area */}
+      <CoverageSection />
 
       {/* Section 6: Gallery */}
-      <section className="bg-surface-section-alt" aria-label="Gallery — TODO">
-        <div className="mx-auto max-w-[72rem] px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm text-steel">TODO(owner-content) — Gallery section</p>
-        </div>
-      </section>
+      <GalleryStrip />
 
+      {/* ─── Placeholder slots for future sections ─── */}
       {/* Section 7: Testimonials */}
       <section className="bg-surface-section" aria-label="Testimonials — TODO">
         <div className="mx-auto max-w-[72rem] px-4 py-16 sm:px-6 lg:px-8">
