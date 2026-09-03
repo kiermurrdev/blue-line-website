@@ -2,6 +2,8 @@
 
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
+import { ServiceGrid } from "@/components/sections/ServiceGrid";
+import { ProcessSteps } from "@/components/sections/ProcessSteps";
 // Owner-confirmed stats (CONTENT_MODEL §3): render only confirmed values
 const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 
@@ -14,21 +16,13 @@ export default function HomePage() {
       {/* Section 2 — TrustBar (hidden when no stats confirmed) */}
       <TrustBar stats={CONFIRMED_STATS} />
 
-      {/* ─── Placeholder slots for future sections ─── */}
       {/* Section 3: Services */}
-      <section className="bg-surface-section" aria-label="Services — TODO">
-        <div className="mx-auto max-w-[72rem] px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm text-steel">TODO(owner-content) — Services section</p>
-        </div>
-      </section>
+      <ServiceGrid />
 
       {/* Section 4: Process */}
-      <section className="bg-surface-section-alt" aria-label="Process — TODO">
-        <div className="mx-auto max-w-[72rem] px-4 py-16 sm:px-6 lg:px-8">
-          <p className="text-sm text-steel">TODO(owner-content) — Process section</p>
-        </div>
-      </section>
+      <ProcessSteps />
 
+      {/* ─── Placeholder slots for future sections ─── */}
       {/* Section 5: Coverage */}
       <section className="bg-surface-section" aria-label="Coverage — TODO">
         <div className="mx-auto max-w-[72rem] px-4 py-16 sm:px-6 lg:px-8">

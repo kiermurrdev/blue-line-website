@@ -10,6 +10,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   summary: string;
   href?: string;
+  linkLabel?: string;
 }
 
 export function ServiceCard({
@@ -19,6 +20,7 @@ export function ServiceCard({
   title,
   summary,
   href,
+  linkLabel = `Learn more about ${title}`,
   className,
 }: CardProps) {
   return (
@@ -63,6 +65,7 @@ export function ServiceCard({
             href={href}
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors duration-150 hover:text-brand-dark group-hover:gap-2"
           >
+            <span className="sr-only">{linkLabel}</span>
             Learn more
             <svg
               width="16"

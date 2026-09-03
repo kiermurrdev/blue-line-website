@@ -1,15 +1,11 @@
-import type { Metadata } from "next";
+/** ServiceGrid — responsive 3/2/1 card grid from getServices(). */
+
 import { getServices } from "@/lib/content";
-import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ServiceCard } from "@/components/ui/ServiceCard";
+import { Container } from "../ui/Container";
+import { SectionHeading } from "../ui/SectionHeading";
+import { ServiceCard } from "../ui/ServiceCard";
 
-export const metadata: Metadata = {
-  title: "Services — Blue Line Marine Transport",
-};
-
-/** Services overview — grid of service cards linking to detail pages. */
-export default function ServicesPage() {
+export function ServiceGrid() {
   const services = getServices();
 
   return (
@@ -30,6 +26,7 @@ export default function ServicesPage() {
               title={service.title}
               summary={service.summary}
               href={`/services/${service.slug}`}
+              linkLabel={`Learn more about ${service.title}`}
             />
           ))}
         </div>
