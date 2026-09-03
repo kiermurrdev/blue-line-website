@@ -16,6 +16,7 @@ Next.js App Router + React + TypeScript (`strict`) + Tailwind CSS. Deploy target
 - Branches: `feat/<short-slug>`, `fix/<short-slug>`; one concern per PR; small commits with imperative messages.
 - Quality gate before merge: `next build` clean + mobile viewport pass on changed pages (Lighthouse ≥ 90 when payload changes).
 - Styling: Tailwind utilities mapped to the CSS-variable tokens in `globals.css`; don't hardcode hex values that exist as tokens. Accent color is reserved for CTAs only.
+- Brand assets: logo lives at `public/brand/logo.svg` (transparent background, light-surface lockup — near-black wordmark + blue tagline). Use it via `<img>`/`next/image`; never recreate the mark in CSS or text. Confirmed brand colors are tokens only (`--color-brand` #0055A5, `--color-ink` #231F20); a reversed dark-surface variant is still needed for footer/hero.
 - Images via `next/image` with explicit dimensions; assets in `public/images/`, named by purpose (`hero-trailer.webp`).
 
 ## Do not

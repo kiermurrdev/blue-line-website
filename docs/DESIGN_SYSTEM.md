@@ -11,25 +11,28 @@ Core principles:
 5. **Motion is optional and quiet.** At most: fade/rise on section entry (≤300ms), hover states with clear feedback. Always honor `prefers-reduced-motion`.
 
 ## 2. Color tokens
-Defined as CSS variables in `globals.css`, mapped into Tailwind config. Final hex values are **proposals** pending brand assets from the owner (§Open Questions #8).
+Defined as CSS variables in `globals.css`, mapped into Tailwind config. **Brand blue and the near-black ink are now confirmed from the delivered logo** (`public/brand/logo.svg`); the neutral surfaces and the CTA accent remain proposals pending owner sign-off (see PROJECT_BRIEF open questions).
 
-| Token | Proposed value | Role |
-|---|---|---|
-| `--color-ink` (navy 950) | `#0A1B2E` | Primary dark surface, footer, hero scrim base |
-| `--color-navy` (800) | `#12304F` | Secondary dark surface, header on scroll |
-| `--color-steel` (500) | `#4A6B8A` | Muted text on light, borders on dark |
-| `--color-mist` (100) | `#E9EEF3` | Light section backgrounds |
-| `--color-foam` (white) | `#FAFBFC` | Page background base |
-| `--color-signal` (accent) | `#FF7A1A` (safety orange) | **CTAs only** — buttons, key links, focus rings on dark |
-| `--color-signal-dark` | `#E05F00` | Accent hover/active |
+| Token | Value | Status | Role |
+|---|---|---|---|
+| `--color-brand` | `#0055A5` | **confirmed** (logo) | Identity color — links, eyebrow labels, active nav, the "blue line" rules, focus rings on light surfaces |
+| `--color-brand-dark` | `#00417E` | proposed | Brand hover/active |
+| `--color-ink` | `#231F20` | **confirmed** (logo) | Primary text on light; the near-black wordmark color. Also anchors dark surfaces |
+| `--color-navy` | `#0B1E33` | proposed | Dark section surfaces, footer, hero scrim base (deep marine navy) |
+| `--color-steel` | `#5A748C` | proposed | Muted text on light, borders on dark |
+| `--color-mist` | `#E9EEF3` | proposed | Light section backgrounds |
+| `--color-foam` | `#FAFBFC` | proposed | Page background base |
+| `--color-signal` | `#FF7A1A` (safety orange) | **pending owner confirm** | **CTAs only** — primary buttons, key links, focus rings on dark. The single high-visibility "act now" color |
+| `--color-signal-dark` | `#E05F00` | proposed | Accent hover/active |
 
 Rules:
-- Signal accent appears in ≤ 2 places per viewport. It means "act now."
-- Body text is navy-on-foam or foam-on-navy; never mid-gray on white (contrast).
+- Two-color system with strict roles: **brand blue = who we are** (structure, trust, the literal "blue line"); **signal orange = act now** (conversion only). Signal appears in ≤ 2 places per viewport.
+- Body text is `--color-ink` on foam/mist or foam on navy; never mid-gray on white (contrast ≥ 4.5:1).
 - Dark sections (hero, footer, trust bar) use ink/navy with foam text and steel borders.
+- The delivered logo is a **light-surface lockup** (near-black wordmark + blue tagline, transparent background) — it sits correctly on white/foam/mist. For dark surfaces (footer, hero) we need a **reversed variant**: recolor the `#231F20` paths to foam/white and keep the blue. Trivially derivable from the SVG or supplied by the owner (see BRAND_ASSETS_CHECKLIST §C).
 
 ## 3. Typography
-One self-hosted variable family pair via `next/font` (final pick pending brand assets):
+One self-hosted variable family pair via `next/font`. **Brand colors are now confirmed from the logo; the type pairing remains a proposal** pending owner taste — the wordmark is a heavy geometric sans, so headings should echo that weight.
 
 | Role | Proposed face | Usage |
 |---|---|---|
@@ -52,7 +55,7 @@ One self-hosted variable family pair via `next/font` (final pick pending brand a
 |---|---|
 | Button (primary) | Signal bg, ink text, weight 600, `px-6 py-3`, radius 6px; hover: signal-dark + slight lift; focus-visible ring 2px offset. Full-width on mobile in CTAs. |
 | Button (secondary) | Transparent, 1px foam/steel border, current-color text; for dark sections. |
-| Header | Sticky, transparent over hero → solid ink with hairline bottom border after scroll; logo left; nav center-right; phone number + "Get a Quote" button right. Mobile: hamburger → full-screen navy panel. |
+| Header | Sticky, transparent over hero → solid ink with hairline bottom border after scroll; **logo left** (`public/brand/logo.svg`, light-surface lockup — on the dark scrolled state use the reversed variant); nav center-right; phone number + "Get a Quote" button right. Mobile: hamburger → full-screen navy panel. |
 | StickyCallBar (mobile) | Fixed bottom bar on small screens only: `tel:` call button (primary) + "Get a Quote" link; hidden when the contact form is in view. |
 | Card (service) | Foam surface, 1px border, image top (4:3), eyebrow + title + summary + arrow link; hover: border darkens + arrow shifts. |
 | Stat / TrustBar | Dark band, 3–5 stats (years, boats moved, states served, DOT #), large display numerals in foam, steel labels. |

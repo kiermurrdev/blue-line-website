@@ -71,6 +71,6 @@ See §11 of this brief — tracked in `docs/PROJECT_BRIEF.md` §Open Questions b
 | 5 | Real photos: boats on trailers, loading, team, equipment | ★ (gallery + hero — no stock-only) |
 | 6 | Testimonials with name + location | social proof |
 | 7 | Quote process details / what info a quote needs | form fields |
-| 8 | Existing logo / brand assets or colors | design tokens |
+| 8 | Logo + brand colors | ✅ **Resolved (2026-09-03):** logo delivered as `public/brand/logo.svg`; brand blue `#0055A5` + ink `#231F20` confirmed. Remaining color decision: CTA accent (proposed safety orange) — owner to confirm |
 | 9 | Social media accounts (if any) | footer |
 | 10 | Any certifications, marina partnerships, or memberships | trust bar |

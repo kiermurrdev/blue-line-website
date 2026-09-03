@@ -1,6 +1,6 @@
 # Brand & Assets Checklist — Blue Line Marine Transport
 
-Stage gate before visual implementation (Phase 1 finalization / Phase 2). Updated 2026-09-02.
+Stage gate before visual implementation (Phase 1 finalization / Phase 2). Updated 2026-09-03 — logo delivered, brand colors confirmed from it.
 
 ## A. Confirmed business information ✅
 | Item | Value |
@@ -32,8 +32,8 @@ These three unblock: header/footer contact CTA, quote/contact page core, `SiteCo
 ## C. Required brand assets
 | Asset | Spec | Notes |
 |---|---|---|
-| **Logo** | SVG (vector) + PNG fallback; light & dark variants for header/footer | ★ gates final visual identity; WIP may use a text wordmark only, marked temporary |
-| **Brand colors** | Hex values if the business has them | Otherwise we proceed with proposed navy/safety-orange tokens and re-skin after logo review — flag as provisional |
+| **Logo** | ✅ **Delivered 2026-09-03:** `public/brand/logo.svg` — stacked typographic lockup, transparent background. "BLUELINE" in near-black `#231F20` (blue middle-bars on the two E's) over "MARINE TRANSPORT" in brand blue `#0055A5`. No separate pictorial mark. **Still needed:** a reversed dark-surface variant (wordmark → white/foam, keep blue) for footer + hero; optional PNG export for non-SVG contexts |
+| **Brand colors** | ✅ **Confirmed from logo (2026-09-03):** brand blue `#0055A5`, ink `#231F20` — now tokens in DESIGN_SYSTEM.md. Neutral surfaces + CTA accent remain proposals pending owner sign-off on the accent |
 | **Hero photo** | Boat on trailer in transit or loading; landscape ≥ 2000px wide, real job | ★ gates home hero (no stock posing as our work) |
 | **Gallery photos ×6–9** | Real jobs: loading, secured loads, fleet/trucks, deliveries; each with location + vessel caption | ★ gates gallery section/page |
 

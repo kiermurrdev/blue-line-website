@@ -30,7 +30,8 @@ blue-line-website/
 │   ├── DESIGN_SYSTEM.md
 │   └── CONTENT_MODEL.md
 ├── public/
-│   └── images/                # optimized assets, named by purpose: hero-*.webp etc.
+│   ├── brand/                 # logo + brand marks (logo.svg — transparent, light-surface lockup)
+│   └── images/                # optimized photo assets, named by purpose: hero-*.webp etc.
 ├── src/
 │   ├── app/                   # Next.js App Router — routing + layout only
 │   │   ├── layout.tsx         # root layout: fonts, metadata, header/footer, call bar
