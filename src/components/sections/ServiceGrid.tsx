@@ -1,5 +1,7 @@
 /** ServiceGrid — responsive 3/2/1 card grid from getServices(). */
 
+import Link from "next/link";
+
 import { getServices } from "@/lib/content";
 import { Container } from "../ui/Container";
 import { SectionHeading } from "../ui/SectionHeading";

@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Container } from "./Container";
+import Link from "next/link";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc?: string;
@@ -61,7 +62,7 @@ export function ServiceCard({
 
         {/* Arrow link */}
         {href && (
-          <a
+          <Link
             href={href}
             className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors duration-150 hover:text-brand-dark group-hover:gap-2"
           >
@@ -77,7 +78,7 @@ export function ServiceCard({
             >
               <path d="M3 8h10m0 0L9 4m4 4l-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
+          </Link>
         )}
       </div>
     </article>
