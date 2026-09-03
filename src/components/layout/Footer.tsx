@@ -1,5 +1,8 @@
-import { siteConfig } from "@/content/site";
+import { getSite } from "@/lib/content";
+import { cn, stripPhoneDigits } from "@/lib/utils";
 import Link from "next/link";
+
+const site = getSite();
 
 /** Minimal footer — contact block, nav links, legal. */
 export function Footer() {
@@ -62,13 +65,13 @@ export function Footer() {
             </h4>
             <address className="not-italic space-y-2 text-sm text-steel">
               <p>
-                <a href={`tel:${siteConfig.phone.replace(/\D/g, "")}`} className="hover:text-signal transition-colors">
-                  {siteConfig.phone}
+                <a href={`tel:${stripPhoneDigits(site.phone)}`} className="hover:text-signal transition-colors">
+                  {site.phone}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-signal transition-colors">
-                  {siteConfig.email}
+                <a href={`mailto:${site.email}`} className="hover:text-signal transition-colors">
+                  {site.email}
                 </a>
               </p>
             </address>

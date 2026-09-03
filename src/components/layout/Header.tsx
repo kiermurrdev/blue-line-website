@@ -1,6 +1,8 @@
-import { siteConfig } from "@/content/site";
+import { getSite } from "@/lib/content";
 import Image from "next/image";
 import Link from "next/link";
+
+const site = getSite();
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -56,10 +58,10 @@ export function Header() {
         {/* Phone CTA */}
         <div className="flex items-center gap-3">
           <a
-            href={`tel:${siteConfig.phone.replace(/\D/g, "")}`}
+            href={`tel:${site.phone.replace(/\D/g, "")}`}
             className="text-sm font-semibold text-ink hover:text-brand"
           >
-            {siteConfig.phone}
+            {site.phone}
           </a>
           <Link
             href="/contact"

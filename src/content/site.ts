@@ -1,4 +1,4 @@
-import type { SiteConfig } from "@/types";
+import type { SiteConfig } from "@/types/content";
 
 /**
  * Company contact & identity — single source of truth for all CTAs, footers, and metadata.
