@@ -4,8 +4,13 @@ import Link from "next/link";
 
 const site = getSite();
 
-/** Minimal footer — contact block, nav links, legal. */
+/** Footer — contact block, service links, company nav, legal line. */
 export function Footer() {
+  const hasDot = Boolean(site.dotNumber);
+  const hasInsurance = Boolean(site.insuranceStatement);
+  const hasAddress = Boolean(site.address);
+  const hasHours = Boolean(site.hours);
+
   return (
     <footer className="border-t border-steel/30 bg-navy text-foam">
       <div className="mx-auto max-w-container-xl px-4 py-12 md:px-8">
@@ -18,7 +23,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Services */}
           <div>
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foam/80">
               Services
@@ -74,15 +79,55 @@ export function Footer() {
                   {site.email}
                 </a>
               </p>
+              {hasAddress && (
+                <p>{site.address}</p>
+              )}
+              {hasHours && (
+                <p>{site.hours}</p>
+              )}
             </address>
+
+            {/* Social links */}
+            {site.socials?.length ? (
+              <div className="mt-4 flex gap-3">
+                {site.socials.map((social) => (
+                  <a
+                    key={social.platform}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${social.platform} profile`}
+                    className="text-steel transition-colors hover:text-signal"
+                  >
+                    <span className="sr-only">{social.platform}</span>
+                    {/* Simple icon placeholder — replace with actual SVG when social icons are decided */}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-10 border-t border-steel/30 pt-6 text-center text-xs text-steel">
-          &copy; {new Date().getFullYear()} Blue Line Marine Transport. All rights reserved.
+        {/* Legal line */}
+        <div className={cn(
+          "mt-10 border-t border-steel/30 pt-6 text-center text-xs text-steel",
+          hasDot && "text-left"
+        )}>
+          <p>&copy; {new Date().getFullYear()} Blue Line Marine Transport. All rights reserved.</p>
+          {hasDot && (
+            <p className="mt-1">DOT #{site.dotNumber}</p>
+          )}
+          {hasInsurance && (
+            <p className="mt-1">{site.insuranceStatement}</p>
+          )}
         </div>
       </div>
+
+      {/* Bottom padding for mobile StickyCallBar */}
+      <div className="h-16 md:hidden" />
     </footer>
   );
 }

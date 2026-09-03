@@ -4,6 +4,7 @@ import { Archivo, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
+import { StickyCallBar } from "@/components/layout/StickyCallBar";
 
 /* Variable font families — DESIGN_SYSTEM.md §3 */
 const archivo = Archivo({
@@ -36,6 +37,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        {/* Mobile-only sticky call bar — adds bottom padding to body on mobile */}
+        <div className="h-16 md:hidden" aria-hidden="true" />
+        <StickyCallBar />
       </body>
     </html>
   );
