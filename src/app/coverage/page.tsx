@@ -5,7 +5,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Service Area — Blue Line Marine Transport",
-  description: "Blue Line Marine Transport covers 6 states along the East Coast, from New York to Florida. Door-to-door boat hauling and delivery.",
+  description:
+    "Blue Line Marine Transport covers states along the East Coast, from New York to Florida. Door-to-door boat hauling and delivery. Check your area or request a quote.",
 };
 
 /** Coverage page — full treatment with map + region list. */
@@ -25,7 +26,7 @@ export default function CoveragePage() {
         </Container>
       </section>
 
-      <CoverageSection />
+      <CoverageSection variant="full" />
     </main>
   );
 }
