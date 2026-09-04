@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { StickyCallBar } from "@/components/layout/StickyCallBar";
+import { getSite } from "@/lib/content";
+
+const site = getSite();
 
 /* Variable font families — DESIGN_SYSTEM.md §3 */
 const archivo = Archivo({
@@ -24,7 +27,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Blue Line Marine Transport — Professional Boat Transportation",
   description:
-    "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
+    site.dotNumber && site.insuranceStatement
+      ? "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today."
+      : "Professional boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

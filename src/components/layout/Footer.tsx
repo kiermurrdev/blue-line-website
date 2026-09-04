@@ -19,7 +19,10 @@ export function Footer() {
           <div>
             <h3 className="mb-3 text-lg font-semibold text-foam">Blue Line Marine Transport</h3>
             <p className="text-sm leading-relaxed text-steel">
-              Professional boat transportation across the East Coast. Licensed &amp; insured.
+              Professional boat transportation across the East Coast.
+              {hasDot && hasInsurance ? (
+                <> Licensed &amp; insured.</>
+              ) : null}
             </p>
           </div>
 

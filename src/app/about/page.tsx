@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { getAboutPageContent, getTestimonials } from "@/lib/content";
+import { getSite } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { QuoteCta } from "@/components/sections/QuoteCta";
+
+const site = getSite();
 
 const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 
@@ -12,7 +15,9 @@ const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 export const metadata: Metadata = {
   title: "About — Blue Line Marine Transport",
   description:
-    "Learn about Blue Line Marine Transport — licensed & insured boat transportation across the East Coast. Safety, experience, and care on every move.",
+    (site.dotNumber && site.insuranceStatement)
+      ? "Learn about Blue Line Marine Transport — licensed & insured boat transportation across the East Coast. Safety, experience, and care on every move."
+      : "Learn about Blue Line Marine Transport — professional boat transportation across the East Coast. Safety, experience, and care on every move.",
   alternates: {
     canonical: "/about",
   },
@@ -20,7 +25,9 @@ export const metadata: Metadata = {
     type: "website",
     title: "About — Blue Line Marine Transport",
     description:
-      "Learn about Blue Line Marine Transport — licensed & insured boat transportation across the East Coast. Safety, experience, and care on every move.",
+      (site.dotNumber && site.insuranceStatement)
+        ? "Learn about Blue Line Marine Transport — licensed & insured boat transportation across the East Coast. Safety, experience, and care on every move."
+        : "Learn about Blue Line Marine Transport — professional boat transportation across the East Coast. Safety, experience, and care on every move.",
     siteName: "Blue Line Marine Transport",
     locale: "en_US",
     url: "/about",

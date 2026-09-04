@@ -46,7 +46,7 @@ interface HeroProps {
 
 export function Hero({
   title = "Professional boat transportation across the East Coast",
-  subtitle = "Licensed & insured. Door-to-door delivery for powerboats, sailboats, and heavy vessels.",
+  subtitle = "Door-to-door delivery for powerboats, sailboats, and heavy vessels.",
 }: HeroProps) {
   return (
     <section className="relative bg-navy" aria-label="Hero">
@@ -95,14 +95,24 @@ export function Hero({
               </a>
             </div>
 
-            {/* Trust strip — short, factual */}
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-brand/20 pt-6">
-              <span className="text-xs text-steel">Licensed &amp; insured</span>
-              <span className="hidden h-3 w-[1px] bg-steel/30 sm:block" />
-              <span className="text-xs text-steel">East Coast coverage</span>
-              <span className="hidden h-3 w-[1px] bg-steel/30 sm:block" />
-              <span className="text-xs text-steel">Door-to-door delivery</span>
-            </div>
+            {/* Trust strip — short, factual; "Licensed & insured" only when confirmed */}
+            {(() => {
+              const items = [
+                ...(site.dotNumber || site.insuranceStatement ? [{ label: "Licensed &amp; insured", key: "licensed" }] : []),
+                { label: "East Coast coverage", key: "coverage" },
+                { label: "Door-to-door delivery", key: "delivery" },
+              ];
+              return (
+                <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 border-t border-brand/20 pt-6">
+                  {items.map((item, i) => (
+                    <>
+                      {i > 0 && <span className="hidden h-3 w-[1px] bg-steel/30 sm:block" />}
+                      <span className="text-xs text-steel">{item.label}</span>
+                    </>
+                  ))}
+                </div>
+              );
+            })()}
           </div>
         </Container>
 
