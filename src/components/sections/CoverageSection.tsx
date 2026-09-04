@@ -1,6 +1,7 @@
 /** CoverageSection — semantic region list + static SVG map of service states. */
 
 import { getCoverageAreas } from "@/lib/content";
+import { getSite } from "@/lib/content";
 import type { CoverageArea } from "@/types/content";
 import { Container } from "../ui/Container";
 import { SectionHeading } from "../ui/SectionHeading";
@@ -120,11 +121,12 @@ function CoverageMap({ areas, size = "default" }: { areas: CoverageArea[]; size?
 /** CoverageSection — renders on home, /coverage, and /gallery. */
 export function CoverageSection({ variant = "default" }: { variant?: "default" | "compact" | "full" }) {
   const areas = getCoverageAreas();
+  const site = getSite();
   const hasConfirmed = areas.some((a) => a.notes?.includes("TODO(owner-content)") === false);
 
   // ─── Full variant: dedicated /coverage page treatment ───
   if (variant === "full") {
-    return <FullCoveragePage areas={areas} hasConfirmed={hasConfirmed} />;
+    return <FullCoveragePage areas={areas} hasConfirmed={hasConfirmed} phone={site.phone} />;
   }
 
   return (
@@ -199,10 +201,10 @@ export function CoverageSection({ variant = "default" }: { variant?: "default" |
                   </a>
                   <span className="text-sm text-steel">or call</span>
                   <a
-                    href="tel:+173****1026"
+                    href={`tel:${site.phone}`}
                     className="text-sm font-semibold text-brand underline decoration-steel/30 underline-offset-4 transition-colors hover:text-brand-dark hover:decoration-brand"
                   >
-                    (732) 222-1026
+                    {site.phone}
                   </a>
                 </div>
               </>
@@ -224,18 +226,18 @@ export function CoverageSection({ variant = "default" }: { variant?: "default" |
 // ─── Full coverage page treatment (variant="full") ──────────────────────
 
 /** What's-included panel — renders per-state or as a general list. */
-function WhatsIncluded() {
+function WhatsIncluded({ hasInsurance }: { hasInsurance?: boolean }) {
   return (
     <div className="rounded-[6px] border border-steel/20 bg-surface-section-alt p-5">
       <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.1em] text-ink">What's Included</h3>
       <ul className="space-y-3" role="list">
         {[
-        "Door-to-door pickup & delivery",
-        "Licensed & insured transport",
-        "Pre- and post-haul condition reports",
-        "Experienced crew with tie-down expertise",
-        "Air-ride & hydraulic stretch trailers available",
-      ].map((item) => (
+          "Door-to-door pickup & delivery",
+          ...(hasInsurance ? ["Licensed & insured transport"] : []),
+          "Pre- and post-haul condition reports",
+          "Experienced crew with tie-down expertise",
+          "Air-ride & hydraulic stretch trailers available",
+        ].map((item) => (
         <li key={item} className="flex items-start gap-2.5">
           <span className="mt-[3px] block h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
           <span className="text-sm leading-relaxed text-ink">{item}</span>
@@ -250,7 +252,7 @@ function WhatsIncluded() {
 }
 
 /** Full coverage page — map hero + state list + what's included + CTA. */
-function FullCoveragePage({ areas, hasConfirmed }: { areas: CoverageArea[]; hasConfirmed: boolean }) {
+function FullCoveragePage({ areas, hasConfirmed, phone }: { areas: CoverageArea[]; hasConfirmed: boolean; phone?: string }) {
   const confirmedAreas = areas.filter((a) => !a.notes?.includes("TODO(owner-content)"));
   const draftAreas = areas.filter((a) => a.notes?.includes("TODO(owner-content)"));
 
@@ -323,8 +325,8 @@ function FullCoveragePage({ areas, hasConfirmed }: { areas: CoverageArea[]; hasC
                   Check Your Area
                 </a>
                 <span className="text-sm text-steel">or call</span>
-                <a href="tel:+1732221026" className="text-sm font-semibold text-brand underline decoration-steel/30 underline-offset-4 transition-colors hover:text-brand-dark hover:decoration-brand">
-                  (732) 222-1026
+                <a href={`tel:${phone}`} className="text-sm font-semibold text-brand underline decoration-steel/30 underline-offset-4 transition-colors hover:text-brand-dark hover:decoration-brand">
+                  {phone}
                 </a>
               </div>
             </div>
@@ -335,7 +337,7 @@ function FullCoveragePage({ areas, hasConfirmed }: { areas: CoverageArea[]; hasC
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-steel">Service Area</p>
                 <CoverageMap areas={areas} size="default" />
               </div>
-              <WhatsIncluded />
+              <WhatsIncluded hasInsurance={Boolean(phone)} />
             </aside>
           </div>
         </Container>
@@ -359,8 +361,8 @@ function FullCoveragePage({ areas, hasConfirmed }: { areas: CoverageArea[]; hasC
               <a href="/contact" className="inline-flex items-center justify-center gap-2 rounded-[6px] border bg-signal px-6 py-3 text-sm font-semibold leading-5 text-ink transition-colors duration-150 hover:-translate-y-[1px] hover:bg-signal-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand w-full sm:w-auto">
                 Request a Free Quote
               </a>
-              <a href="tel:+1732221026" className="inline-flex items-center gap-2 text-sm font-semibold text-foam underline decoration-steel/30 underline-offset-4 transition-colors hover:text-signal hover:decoration-signal w-full sm:w-auto justify-center">
-                (732) 222-1026
+              <a href={`tel:${phone}`} className="inline-flex items-center gap-2 text-sm font-semibold text-foam underline decoration-steel/30 underline-offset-4 transition-colors hover:text-signal hover:decoration-signal w-full sm:w-auto justify-center">
+                {phone}
               </a>
             </div>
           </div>

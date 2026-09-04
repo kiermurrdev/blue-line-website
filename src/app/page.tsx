@@ -12,6 +12,8 @@ import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { QuoteCta } from "@/components/sections/QuoteCta";
 import { getSite, getTestimonials } from "@/lib/content";
 
+const site = getSite();
+
 // Owner-confirmed stats (CONTENT_MODEL §3): render only confirmed values
 const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 
@@ -19,7 +21,9 @@ const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 export const metadata: Metadata = {
   title: "Blue Line Marine Transport — Professional Boat Transportation",
   description:
-    "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
+    (site.dotNumber && site.insuranceStatement)
+      ? "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today."
+      : "Professional boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
   alternates: {
     canonical: "/",
   },
@@ -27,7 +31,9 @@ export const metadata: Metadata = {
     type: "website",
     title: "Blue Line Marine Transport — Professional Boat Transportation",
     description:
-      "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
+      (site.dotNumber && site.insuranceStatement)
+        ? "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today."
+        : "Professional boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
     siteName: "Blue Line Marine Transport",
     locale: "en_US",
     url: "/",
@@ -35,13 +41,14 @@ export const metadata: Metadata = {
 };
 
 /** JSON-LD structured data for LocalBusiness on the homepage. */
-const site = getSite();
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: site.name,
   description:
-    "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
+    (site.dotNumber && site.insuranceStatement)
+      ? "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today."
+      : "Professional boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
   url: "https://bluelinemarinetransport.com",
   telephone: site.phone,
   email: site.email,

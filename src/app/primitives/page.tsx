@@ -7,6 +7,9 @@ import { Stat, Badge } from "@/components/ui/Badge";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { Accordion } from "@/components/ui/Accordion";
 import { ImageFrame } from "@/components/ui/ImageFrame";
+import { getSite } from "@/lib/content";
+
+const site = getSite();
 
 export default function PrimitivesShowcase() {
   return (
@@ -98,19 +101,22 @@ export default function PrimitivesShowcase() {
             lede="Large numerals for trust bars. Badge variants for inline labels."
           />
 
-          {/* Stats */}
+          {/* Stats — only render when owner has confirmed values */}
           <div className="mb-16 grid grid-cols-2 gap-8 sm:grid-cols-4">
-            <Stat numeral="15+" label="Years in operation" />
-            <Stat numeral="12K" label="Boats moved" />
-            <Stat numeral="26" label="States served" />
-            <Stat numeral="DOT-12345" label="Licensed &amp; insured" />
+            {site.dotNumber && (
+              <Stat numeral={site.dotNumber} label="Licensed &amp; insured" />
+            )}
           </div>
 
-          {/* Badges */}
+          {/* Badges — only render when owner has confirmed values */}
           <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.1em] text-steel">Badges</h3>
           <div className="flex flex-wrap gap-3">
-            <Badge>Licensed</Badge>
-            <Badge variant="outline">Insured</Badge>
+            {site.insuranceStatement && (
+              <>
+                <Badge>Licensed</Badge>
+                <Badge variant="outline">Insured</Badge>
+              </>
+            )}
             <Badge>Air-Ride Trailers</Badge>
             <Badge variant="outline">Hydraulic Stretch</Badge>
           </div>
@@ -196,7 +202,7 @@ export default function PrimitivesShowcase() {
                   title: "What insurance coverage do you provide?",
                   content: (
                     <>
-                      All moves include full cargo insurance up to the agreed value of your vessel. We carry $2M general liability and all drivers are certified in heavy equipment transport. Documentation is provided at load-out.
+                      All moves include full cargo insurance up to the agreed value of your vessel. Documentation is provided at load-out.
                     </>
                   ),
                 },
