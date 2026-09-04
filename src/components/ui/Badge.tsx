@@ -23,16 +23,20 @@ export function Stat({ numeral, label, className }: StatProps) {
 
 interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode;
-  variant?: "default" | "outline";
+  variant?: "default" | "outline" | "blue";
+  size?: "sm" | "md";
 }
 
-export function Badge({ children, className, variant = "default" }: BadgeProps) {
+export function Badge({ children, className, variant = "default", size = "md" }: BadgeProps) {
   const base =
-    "inline-flex items-center rounded-[4px] px-2.5 py-0.5 text-xs font-medium transition-colors";
-  const styles =
-    variant === "outline"
-      ? "border border-brand/30 text-brand"
-      : "bg-brand/10 text-brand";
+    "inline-flex items-center rounded-[4px] font-medium transition-colors";
+  const sizes =
+    size === "sm" ? "px-2 py-0.5 text-xs" : "px-2.5 py-0.5 text-sm";
+  const styles: Record<string, string> = {
+    default: `${base} ${sizes} bg-brand/10 text-brand`,
+    outline: `${base} ${sizes} border border-brand/30 text-brand`,
+    blue: `${base} ${sizes} bg-blue/10 text-blue`,
+  };
 
-  return <span className={cn(base, styles, className)}>{children}</span>;
+  return <span className={cn(styles[variant], className)}>{children}</span>;
 }
