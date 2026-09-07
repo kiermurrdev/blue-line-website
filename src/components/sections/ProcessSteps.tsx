@@ -39,12 +39,20 @@ export function ProcessSteps() {
                 </p>
               </div>
 
-              {/* Connector line between steps — only visible on desktop */}
+              {/* Connector line between steps — vertical on mobile, horizontal on desktop */}
               {step.order < steps.length && (
-                <span
-                  className="absolute top-6 hidden h-[2px] w-full -translate-x-1/2 translate-x-full bg-brand/30 md:block"
-                  aria-hidden="true"
-                />
+                <>
+                  {/* Mobile-only vertical connector */}
+                  <span
+                    className="mx-auto mt-4 block h-[2px] w-8 bg-brand/30 md:hidden"
+                    aria-hidden="true"
+                  />
+                  {/* Desktop horizontal connector — clamp width to prevent overflow at narrow md */}
+                  <span
+                    className="absolute top-6 hidden h-[2px] max-w-full min-w-[1rem] translate-x-full bg-brand/30 md:block"
+                    aria-hidden="true"
+                  />
+                </>
               )}
             </li>
           ))}

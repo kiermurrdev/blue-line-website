@@ -1,0 +1,12 @@
+feat: build /gallery page per Issue #16
+
+- New GalleryCard component with placeholder state (no stock imagery)
+- CategoryFilter tabs with blue-line active indicator
+- Responsive grid: 1-up mobile / 2-up tablet / 3-up desktop
+- Explicit image dimensions, lazy loading below fold, meaningful alt text
+- Badge variant 'blue' added for category tags
+- CTA link to /contact when items exist
+- Empty state with intentional placeholder treatment
+- Build passes cleanly (next build)
+
+Refs: #16

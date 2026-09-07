@@ -33,7 +33,7 @@ export default function ContactPage() {
       {/* Form + contact details */}
       <section className="bg-surface-section section-rhythm" aria-labelledby="quote-heading">
         <div className="mx-auto max-w-container-xl px-4 md:px-8">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
+          <div className="grid gap-8 md:gap-10 lg:gap-12 lg:grid-cols-[minmax(0,1fr)_min(22rem,30%)]">
             {/* The form is the conversion surface here (ARCHITECTURE §6) */}
             <div>
               <h2 id="quote-heading" className="sr-only">Quote request</h2>

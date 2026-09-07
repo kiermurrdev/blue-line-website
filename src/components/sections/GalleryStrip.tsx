@@ -69,7 +69,7 @@ export function GalleryStrip({ variant = "default" }: { variant?: "default" | "c
             </div>
 
             {/* Empty state when filtered */}
-            {items.length === 0 && (
+            {!isEmpty && items.length === 0 && (
               <p className="text-center text-sm text-steel">No photos available yet.</p>
             )}
           </>

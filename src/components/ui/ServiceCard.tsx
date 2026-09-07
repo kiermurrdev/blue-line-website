@@ -43,7 +43,7 @@ export function ServiceCard({
         </div>
       )}
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-4 sm:p-6">
         {/* Eyebrow */}
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand">
           {eyebrow}
