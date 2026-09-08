@@ -211,11 +211,19 @@ export function CoverageSection({ variant = "default" }: { variant?: "default" |
             )}
           </div>
 
-          {/* Static SVG map — desktop only */}
+          {/* Static SVG map — visible on all breakpoints */}
           {variant !== "compact" && (
-            <aside className="hidden lg:block">
+            <aside className="hidden md:block">
               <CoverageMap areas={areas} />
             </aside>
+          )}
+
+          {/* Mobile-only map below the list */}
+          {variant !== "compact" && (
+            <div className="md:hidden">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-steel">Service Area</p>
+              <CoverageMap areas={areas} />
+            </div>
           )}
         </div>
       </Container>
@@ -333,7 +341,7 @@ function FullCoveragePage({ areas, hasConfirmed, phone }: { areas: CoverageArea[
 
             {/* ── Sidebar: map + what's included ── */}
             <aside className="space-y-6" aria-label="Coverage details">
-              <div className="hidden lg:block">
+              <div className="hidden md:block">
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-steel">Service Area</p>
                 <CoverageMap areas={areas} size="default" />
               </div>

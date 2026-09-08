@@ -66,19 +66,19 @@ export function Header() {
               alt="Blue Line Marine Transport"
               width={220}
               height={60}
-              className="h-10 w-auto md:h-14"
+              className="h-9 w-auto transition-[height] duration-300 ease-in-out sm:h-10 md:h-12 lg:h-14"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden items-center gap-6 md:flex">
+          <ul className="hidden items-center gap-4 md:flex lg:gap-6">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-brand hover:underline underline-offset-4",
+                    "text-xs font-medium transition-colors hover:text-brand hover:underline underline-offset-4 lg:text-sm",
                     scrolled ? "text-foam" : "text-ink"
                   )}
                 >
@@ -103,7 +103,7 @@ export function Header() {
             <Link
               href="/contact"
               className={cn(
-                "rounded-md bg-signal px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-signal-dark",
+                "rounded-md bg-signal px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-signal-dark sm:px-5 sm:py-2.5",
                 scrolled ? "" : "bg-signal/90"
               )}
             >
