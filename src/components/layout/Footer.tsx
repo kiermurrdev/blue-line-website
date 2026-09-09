@@ -31,19 +31,19 @@ export function Footer() {
             <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foam/80">
               Services
             </h4>
-            <ul className="space-y-2 text-sm text-steel">
+            <ul className="space-y-2 text-sm text-steel" aria-label="Services">
               <li>
-                <Link href="/services/powerboat" className="hover:text-signal transition-colors">
+                <Link href="/services/powerboat" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:text-signal transition-colors rounded-sm underline decoration-transparent hover:decoration-signal">
                   Powerboat Transport
                 </Link>
               </li>
               <li>
-                <Link href="/services/sailboat" className="hover:text-signal transition-colors">
+                <Link href="/services/sailboat" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:text-signal transition-colors rounded-sm underline decoration-transparent hover:decoration-signal">
                   Sailboat Transport
                 </Link>
               </li>
               <li>
-                <Link href="/services/heavy-vessel" className="hover:text-signal transition-colors">
+                <Link href="/services/heavy-vessel" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:text-signal transition-colors rounded-sm underline decoration-transparent hover:decoration-signal">
                   Heavy / Large Vessel
                 </Link>
               </li>
@@ -58,7 +58,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-steel">
               {(["about", "coverage", "process", "faq"] as const).map((path) => (
                 <li key={path}>
-                  <Link href={`/${path}`} className="hover:text-signal transition-colors capitalize">
+                  <Link href={`/${path}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:text-signal transition-colors rounded-sm capitalize underline decoration-transparent hover:decoration-signal">
                     {path}
                   </Link>
                 </li>
@@ -73,12 +73,12 @@ export function Footer() {
             </h4>
             <address className="not-italic space-y-2 text-sm text-steel">
               <p>
-                <a href={`tel:${stripPhoneDigits(site.phone)}`} className="hover:text-signal transition-colors">
+                <a href={`tel:${stripPhoneDigits(site.phone)}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:text-signal transition-colors rounded-sm underline decoration-transparent hover:decoration-signal">
                   {site.phone}
                 </a>
               </p>
               <p>
-                <a href={`mailto:${site.email}`} className="hover:text-signal transition-colors">
+                <a href={`mailto:${site.email}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 hover:text-signal transition-colors rounded-sm underline decoration-transparent hover:decoration-signal">
                   {site.email}
                 </a>
               </p>
@@ -100,7 +100,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${social.platform} profile`}
-                    className="text-steel transition-colors hover:text-signal"
+                    className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 text-steel transition-colors hover:text-signal rounded-sm underline decoration-transparent hover:decoration-signal"
                   >
                     <span className="sr-only">{social.platform}</span>
                     {/* Simple icon placeholder — replace with actual SVG when social icons are decided */}

@@ -44,7 +44,7 @@ export default function PrimitivesShowcase() {
 
           {/* Primary */}
           <div className="mb-12">
-            <h3 className="mb-6 text-sm font-semibold uppercase tracking-[0.1em] text-steel">Primary (signal bg)</h3>
+            <h2 className="mb-6 text-sm font-semibold uppercase tracking-[0.1em] text-steel">Primary (signal bg)</h2>
             <div className="flex flex-wrap items-center gap-4">
               <PrimaryButton>Get a Quote</PrimaryButton>
               <PrimaryButton disabled>Disabled</PrimaryButton>

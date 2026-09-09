@@ -47,6 +47,14 @@ export function Header() {
 
   return (
     <>
+      {/* Skip link — visible on focus */}
+      <a
+        href="#main-content"
+        className="sr-only absolute left-4 top-4 z-[70] rounded bg-brand px-4 py-2 text-sm font-semibold text-white transition-opacity hover:bg-brand-dark focus:not-sr-only focus:opacity-100"
+      >
+        Skip to main content
+      </a>
+
       <header className={cn("sticky top-0 z-50 w-full transition-colors duration-200", headerBg)}>
         {/* Blue-line rule at bottom of header */}
         <div className={cn("blue-line transition-opacity duration-200", scrolled ? "opacity-100" : "opacity-40")} />
@@ -78,7 +86,7 @@ export function Header() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "text-xs font-medium transition-colors hover:text-brand hover:underline underline-offset-4 lg:text-sm",
+                    "text-xs font-medium transition-colors hover:text-brand hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-[3px] lg:text-sm",
                     scrolled ? "text-foam" : "text-ink"
                   )}
                 >
@@ -93,8 +101,9 @@ export function Header() {
             <a
               href={`tel:${stripPhoneDigits(site.phone)}`}
               data-site-phone
+              aria-label={site.phone}
               className={cn(
-                "hidden text-sm font-semibold transition-colors hover:text-brand md:inline",
+                "hidden text-sm font-semibold transition-colors hover:text-brand md:inline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-[3px]",
                 scrolled ? "text-foam" : "text-ink"
               )}
             >
@@ -102,8 +111,9 @@ export function Header() {
             </a>
             <Link
               href="/contact"
+              aria-label="Get a quote"
               className={cn(
-                "rounded-md bg-signal px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-signal-dark sm:px-5 sm:py-2.5",
+                "rounded-md bg-signal px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-signal-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:px-5 sm:py-2.5",
                 scrolled ? "" : "bg-signal/90"
               )}
             >
@@ -114,7 +124,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
               className={cn(
                 "ml-2 flex h-10 w-10 items-center justify-center md:hidden",
                 scrolled ? "text-foam" : "text-ink"

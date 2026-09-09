@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 /** Coverage page — full treatment with map + region list. */
 export default function CoveragePage() {
   return (
-    <main id="main" role="main">
+    <>
       {/* Hero stub for coverage page */}
       <section className="bg-navy py-16 md:py-24 lg:py-32">
         <Container>
@@ -27,6 +27,6 @@ export default function CoveragePage() {
       </section>
 
       <CoverageSection variant="full" />
-    </main>
+    </>
   );
 }

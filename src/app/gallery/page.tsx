@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getGalleryItems } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
-import GalleryCard from "@/components/gallery/GalleryCard";
+import { GalleryCard } from "@/components/gallery/GalleryCard";
 import CategoryFilter from "@/components/gallery/CategoryFilter";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function GalleryPage() {
   const categories = [...new Set(items.map((i) => i.category).filter(Boolean))].sort();
 
   return (
-    <main id="main" role="main">
+    <main id="main-content" role="main">
       {/* Hero */}
       <section className="bg-navy py-16 md:py-24 lg:py-32">
         <Container>

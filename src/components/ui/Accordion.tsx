@@ -11,32 +11,22 @@ interface AccordionItemProps {
   children: React.ReactNode;
 }
 
-function AccordionItem({ id, title, children }: AccordionItemProps) {
+function ChevronIcon({ open }: { open?: boolean }) {
   return (
-    <div className="border-b border-steel/20 last:border-b-0">
-      <h3>
-        <button
-          type="button"
-          id={`accordion-heading-${id}`}
-          aria-expanded={false}
-          aria-controls={`accordion-panel-${id}`}
-          disabled
-          className="flex w-full cursor-default items-center justify-between gap-4 py-5 text-left font-semibold leading-snug text-ink transition-colors duration-150 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand"
-        >
-          <span>{title}</span>
-          <ChevronIcon />
-        </button>
-      </h3>
-      <div
-        id={`accordion-panel-${id}`}
-        role="region"
-        aria-labelledby={`accordion-heading-${id}`}
-        className="overflow-hidden transition-[max-height] duration-200 ease-in-out"
-        style={{ maxHeight: "0px" }}
-      >
-        <div className="pb-5 text-sm leading-relaxed text-steel">{children}</div>
-      </div>
-    </div>
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      className={cn(
+        "shrink-0 text-steel transition-transform duration-200",
+        open && "rotate-180"
+      )}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 
@@ -88,7 +78,7 @@ function AccordionItemWithState({
           aria-expanded={isOpen}
           aria-controls={`accordion-panel-${id}`}
           onClick={onToggle}
-          className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold leading-snug text-ink transition-colors duration-150 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand"
+          className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold leading-snug text-ink underline decoration-transparent hover:decoration-brand transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-[3px] focus-visible:ring-brand"
         >
           <span>{title}</span>
           <ChevronIcon open={isOpen} />
@@ -101,26 +91,8 @@ function AccordionItemWithState({
         className="overflow-hidden transition-[max-height] duration-200 ease-in-out"
         style={{ maxHeight: isOpen ? "500px" : "0px" }}
       >
-        <div className="pb-5 text-sm leading-relaxed text-steel">{content}</div>
+        <div className="pb-5 text-sm leading-relaxed font-medium text-navy/70">{content}</div>
       </div>
     </div>
-  );
-}
-
-function ChevronIcon({ open }: { open?: boolean }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      className={cn(
-        "shrink-0 text-steel transition-transform duration-200",
-        open && "rotate-180"
-      )}
-      aria-hidden="true"
-    >
-      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
   );
 }

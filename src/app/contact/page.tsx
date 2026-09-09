@@ -17,7 +17,7 @@ const site = getSite();
 /** Primary conversion page (ARCHITECTURE §2) — static shell + client form. */
 export default function ContactPage() {
   return (
-    <>
+    <main id="main-content" role="main">
       {/* Hero band — establishes the page's single job immediately */}
       <section className="bg-surface-dark section-rhythm">
         <div className="mx-auto max-w-container-xl px-4 md:px-8">
@@ -103,6 +103,6 @@ export default function ContactPage() {
         title="Ready to Move Your Boat?"
         lede="Request a free, no-obligation quote or call us directly — we respond within one business day."
       />
-    </>
+    </main>
   );
 }

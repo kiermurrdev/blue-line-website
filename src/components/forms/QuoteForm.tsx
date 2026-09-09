@@ -81,7 +81,7 @@ const inputClasses = (hasError: boolean) =>
     "w-full rounded-[6px] border bg-white px-3 py-2.5 text-base leading-6 text-ink placeholder:text-steel/70",
     "min-h-[44px]", // touch target ≥ 44×44 (DESIGN_SYSTEM §7)
     hasError ? "border-red-700" : "border-steel/40",
-    "focus:outline-none focus:ring-2 focus:ring-navy focus:border-navy"
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:border-navy"
   );
 
 /**
@@ -157,8 +157,8 @@ export function QuoteForm() {
   if (status === "success") {
     return (
       <div id="quote-form" role="status" className="rounded-[6px] border border-brand/30 bg-mist p-8 text-center">
-        <h2 className="text-xl font-bold">Request received</h2>
-        <p className="mt-2 text-steel">
+        <h2 className="mb-1 text-xl font-bold">Request received</h2>
+        <p className="mt-2 text-lg font-semibold text-navy/70">
           Thanks, {data.name.trim() || "there"} — we&apos;ll get back to you within one business day.
         </p>
         <button

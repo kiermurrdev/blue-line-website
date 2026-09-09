@@ -86,6 +86,7 @@ export function Hero({
 
               <a
                 href={`tel:${stripPhoneDigits(site.phone)}`}
+                aria-label={`Call us at ${site.phone}`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-foam/80 transition-colors hover:text-brand underline underline-offset-4 decoration-steel/30"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

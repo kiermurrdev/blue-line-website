@@ -23,6 +23,7 @@ export function ImageFrame({
   ...rest
 }: ImageFrameProps) {
   const effectiveAlt = decorative ? "" : (alt ?? "");
+  const ariaHidden = decorative ? "true" : undefined;
 
   return (
     <div className={cn("overflow-hidden rounded-[6px]", className)} {...rest}>
@@ -33,6 +34,8 @@ export function ImageFrame({
         height={height}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
+        aria-hidden={ariaHidden}
+        role={decorative ? "presentation" : undefined}
         className="h-full w-full object-cover transition-transform duration-300 hover:scale-[1.02]"
       />
     </div>
