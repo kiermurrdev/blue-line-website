@@ -90,11 +90,12 @@ function GalleryCard({ item }: { item: GalleryItem }) {
         width={640}
         height={480}
         className="aspect-[4/3]"
+        aria-describedby={`gallery-desc-${item.slug}`}
       />
 
       {/* Caption */}
       {item.caption && (
-        <figcaption className="border-t border-steel/15 px-4 py-3">
+        <figcaption id={`gallery-desc-${item.slug}`} className="border-t border-steel/15 px-4 py-3">
           <p className="text-sm font-medium text-ink">{item.caption}</p>
           {item.category && (
             <p className="mt-0.5 text-xs leading-relaxed text-steel">{item.category}</p>

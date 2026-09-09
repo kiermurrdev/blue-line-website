@@ -167,7 +167,7 @@ export function CoverageSection({ variant = "default" }: { variant?: "default" |
                         <div>
                           <p className="text-sm font-semibold text-ink">{area.name}</p>
                           {area.notes && (
-                            <p className="mt-0.5 text-xs leading-relaxed text-steel">
+                            <p className="mt-0.5 text-xs leading-relaxed font-medium text-navy/70">
                               {area.notes}
                             </p>
                           )}
@@ -291,7 +291,7 @@ function FullCoveragePage({ areas, hasConfirmed, phone }: { areas: CoverageArea[
             <div>
               {confirmedAreas.length > 0 && (
                 <>
-                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-steel">Confirmed Service States</p>
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-navy/70">Confirmed Service States</p>
                   <ul className="space-y-2" role="list">
                     {confirmedAreas.map((area) => (
                       <li key={area.slug}>

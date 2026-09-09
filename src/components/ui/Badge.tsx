@@ -9,7 +9,7 @@ interface StatProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Stat({ numeral, label, className }: StatProps) {
   return (
-    <div className={cn("text-center", className)}>
+    <div className={cn("text-center", className)} aria-label={`${numeral} ${label}`}>
       <p
         className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-foam"
         style={{ fontFamily: "var(--font-display)" }}

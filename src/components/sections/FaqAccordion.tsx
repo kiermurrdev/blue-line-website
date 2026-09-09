@@ -31,8 +31,7 @@ export function FaqAccordion({ context }: FaqAccordionProps) {
           lede={context === "quote-process" ? "Everything you need to know before requesting a quote." : undefined}
         />
 
-        <div className="mx-auto max-w-[48rem] sm:max-w-none">
-          <Accordion items={items} />
+        <div className="mx-auto max-w-[48rem] sm:max-w-none" role="region" aria-label="FAQ accordion">
         </div>
       </Container>
     </section>

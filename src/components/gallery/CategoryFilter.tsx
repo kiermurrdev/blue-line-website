@@ -22,10 +22,11 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
               key={cat}
               type="button"
               onClick={() => setActive(cat)}
-              className={`relative px-4 py-2.5 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 ${
+              className={`relative px-4 py-2.5 text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-[3px] ${
                 isActive ? "text-navy" : "text-slate hover:text-navy"
               }`}
               aria-pressed={isActive}
+              aria-current={isActive ? "true" : undefined}
             >
               {cat}
               {/* Blue-line active indicator */}

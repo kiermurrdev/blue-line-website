@@ -41,7 +41,7 @@ export default function AboutPage() {
   if (!content) return null;
 
   return (
-    <>
+    <main id="main-content" role="main">
       {/* Hero */}
       <section className="bg-surface-dark section-rhythm">
         <Container>
@@ -95,6 +95,6 @@ export default function AboutPage() {
         title="Move Your Boat with Confidence"
         lede="We'll walk you through the process, answer your questions, and get you a quote — no obligation."
       />
-    </>
+    </main>
   );
 }

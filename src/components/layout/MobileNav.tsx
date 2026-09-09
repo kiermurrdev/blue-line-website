@@ -3,7 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { ComponentProps } from "react";
-import { cn } from "@/lib/utils";
+import { cn, stripPhoneDigits } from "@/lib/utils";
+import { getSite } from "@/lib/content";
+
+const site = getSite();
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -44,11 +47,13 @@ export function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "Tab") return;
+      const el = panelRef.current;
+      if (!el) return;
       const focusable = Array.from(
-        el.querySelectorAll<HTMLAnchorElement>(
-          'a[href]:not([tabindex="-1"]):not(.sr-only)'
+        el.querySelectorAll<HTMLAnchorElement | HTMLButtonElement>(
+          'a[href]:not([tabindex="-1"]):not(.sr-only), button:not([disabled]):not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])'
         )
-      );
+      ) as (HTMLAnchorElement | HTMLButtonElement)[];
       if (!focusable.length) return;
 
       const first = focusable[0];
@@ -90,13 +95,19 @@ export function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
   };
 
   return (
-    <div className="fixed inset-0 z-[60] bg-navy md:hidden">
+    <div
+      className="fixed inset-0 z-[60] bg-navy md:hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation menu"
+      ref={panelRef}
+    >
       {/* Close button */}
       <button
         type="button"
         onClick={handleClose}
         aria-label="Close menu"
-        className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center text-foam transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand"
+        className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center text-foam transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <line x1="18" y1="6" x2="6" y2="18" />
@@ -105,7 +116,7 @@ export function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       </button>
 
       {/* Nav links */}
-      <nav className="flex h-full flex-col items-center justify-center gap-8 pt-16">
+      <nav aria-label="Mobile navigation" className="flex h-full flex-col items-center justify-center gap-8 pt-16">
         {NAV_LINKS.map((link, i) => (
           <Link
             key={link.href}
@@ -113,7 +124,7 @@ export function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
             ref={i === 0 ? firstLinkRef : undefined}
             {...(i === NAV_LINKS.length - 1 && { ref: lastLinkRef })}
             onClick={handleClose}
-            className="text-2xl font-semibold text-foam transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-brand"
+            className="text-2xl font-semibold text-foam transition-colors hover:text-signal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-white"
           >
             {link.label}
           </Link>
@@ -122,15 +133,17 @@ export function MobileNav({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         {/* CTA */}
         <div className="mt-8 flex flex-col items-center gap-3">
           <a
-            href={`tel:${(document.querySelector("[data-site-phone]") as HTMLElement)?.textContent?.replace(/\D/g, "") || ""}`}
-            className="text-lg font-semibold text-foam hover:text-signal"
+            href={`tel:${stripPhoneDigits(site.phone)}`}
+            aria-label={`Call us at ${site.phone}`}
+            className="text-lg font-semibold text-foam underline decoration-transparent hover:decoration-signal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
           >
             Call Us
           </a>
           <Link
             href="/contact"
             onClick={handleClose}
-            className="inline-flex items-center justify-center rounded-md bg-signal px-8 py-3 text-base font-semibold text-ink transition-colors hover:bg-signal-dark"
+            aria-label="Get a quote"
+            className="inline-flex items-center justify-center rounded-md bg-signal px-8 py-3 text-base font-semibold text-ink underline decoration-transparent hover:decoration-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-navy"
           >
             Get a Quote
           </Link>

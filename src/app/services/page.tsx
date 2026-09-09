@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 /** Services overview — grid of service cards linking to detail pages. */
 export default function ServicesPage() {
   return (
-    <main id="main" role="main">
+    <main id="main-content" role="main">
       {/* Page intro: single H1 + SectionHeading */}
       <section className="bg-surface-section section-rhythm" aria-label="Our Services">
         <Container>

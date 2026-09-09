@@ -36,7 +36,7 @@ export function ServiceCard({
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
           <img
             src={imageSrc}
-            alt={imageAlt || ""}
+            alt={imageAlt || `${title}`}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             loading="lazy"
           />
@@ -64,7 +64,7 @@ export function ServiceCard({
         {href && (
           <Link
             href={href}
-            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors duration-150 hover:text-brand-dark group-hover:gap-2"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-colors duration-150 hover:text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 group-hover:gap-2 rounded-sm"
           >
             <span className="sr-only">{linkLabel}</span>
             Learn more

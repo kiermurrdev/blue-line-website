@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`min-h-screen font-body text-ink antialiased ${archivo.variable} ${inter.variable}`}>
         <SkipLink />
         <Header />
-        <main id="main" role="main">
+        <main id="main-content" role="main">
           {children}
         </main>
         <Footer />

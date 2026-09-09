@@ -68,7 +68,7 @@ export default function HomePage() {
   const testimonials = getTestimonials();
 
   return (
-    <>
+    <main id="main-content" role="main">
       {/* Section 1 — Hero */}
       <Hero />
 
@@ -101,6 +101,6 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </>
+    </main>
   );
 }

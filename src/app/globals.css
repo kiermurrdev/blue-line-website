@@ -4,6 +4,7 @@
 @theme {
   /* Brand colors (confirmed from logo) */
   --color-brand: #0055A5;
+  --color-brand-light: #4D8FD9;
   --color-brand-dark: #00417E;
 
   /* Neutral palette */
@@ -40,6 +41,7 @@
 
   /* Proposed — pending owner sign-off */
   --color-brand-dark: #00417E;
+  --color-brand-light: #4D8FD9;
   --color-navy: #0B1E33;
   --color-steel: #5A748C;
   --color-mist: #E9EEF3;
@@ -87,6 +89,13 @@ body {
   outline-offset: 2px;
 }
 
+/* White focus ring for elements on dark backgrounds */
+.dark-bg :focus-visible,
+[style*="--surface-dark"] :focus-visible,
+nav[aria-label="Mobile navigation"] :focus-visible {
+  outline-color: white;
+}
+
 /* ─── Skip link ─── */
 .skip-link {
   position: absolute;
@@ -103,7 +112,7 @@ body {
   transition: top 0.2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   top: 0;
 }
 
@@ -129,5 +138,28 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ─── High contrast mode support (WCAG 2.1 AA) ─── */
+@media (forced-colors: active) {
+  .blue-line {
+    border-top: 2px solid ButtonText;
+  }
+  
+  button, a {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* ─── Touch target minimum size (WCAG 2.5.5) ─── */
+@media (pointer: coarse) {
+  button, 
+  a[role="button"],
+  input[type="submit"],
+  input[type="reset"],
+  select {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

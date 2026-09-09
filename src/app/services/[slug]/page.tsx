@@ -75,7 +75,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   if (!service) {
     return (
-      <main id="main" role="main">
+      <main id="main-content" role="main">
         <section className="bg-surface-section section-rhythm">
           <Container>
             <h1 className="font-display text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-tight tracking-tight text-ink mb-8" style={{ fontFamily: "var(--font-display)" }}>
@@ -92,7 +92,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   const serviceFaqs = (service.faqRefs?.length ? getFaqs().filter((f) => service.faqRefs!.includes(f.slug)).map((faq) => ({ id: faq.slug, title: faq.question, content: faq.answer })) : []) as { id: string; title: string; content: React.ReactNode }[];
 
   return (
-    <>
+    <main id="main-content" role="main">
       <JsonLd service={service} />
 
       {/* Hero variant — title + summary + CTA */}
@@ -196,6 +196,6 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       {/* Bottom CTA */}
       <QuoteCta />
-    </>
+    </main>
   );
 }
