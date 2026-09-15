@@ -20,8 +20,18 @@ function getServiceKeywords(): string[] {
 }
 
 export const metadata: Metadata = {
-  title: "Services — Blue Line Marine Transport",
-  description: `Professional ${getServiceKeywords().slice(0, 3).join(", ")} across the East Coast. Get a free quote for your boat transport today.`,
+  title: "Services",
+  description: `Professional marine transport, boat transportation, and East Coast boat hauling. Get a free quote for your boat transport today.`,
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Services — Blue Line Marine Transport",
+    description: `Professional marine transport, boat transportation, and East Coast boat hauling. Get a free quote for your boat transport today.`,
+    type: "website",
+    url: "/services",
+    images: ["/opengraph-image"],
+  },
 };
 
 /** Services overview — grid of service cards linking to detail pages. */

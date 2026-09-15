@@ -5,9 +5,20 @@ import { GalleryCard } from "@/components/gallery/GalleryCard";
 import CategoryFilter from "@/components/gallery/CategoryFilter";
 
 export const metadata: Metadata = {
-  title: "Gallery — Blue Line Marine Transport",
+  title: "Gallery",
   description:
     "Real job photos from Blue Line Marine Transport. See how we move powerboats, sailboats, and heavy vessels across the East Coast.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Gallery — Blue Line Marine Transport",
+    description:
+      "Real job photos from Blue Line Marine Transport. See how we move powerboats, sailboats, and heavy vessels across the East Coast.",
+    type: "website",
+    url: "/gallery",
+    images: ["/opengraph-image"],
+  },
 };
 
 /** Gallery page — full photo grid treatment per Issue #16. */

@@ -4,9 +4,20 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Service Area — Blue Line Marine Transport",
+  title: "Service Areas",
   description:
     "Blue Line Marine Transport covers states along the East Coast, from New York to Florida. Door-to-door boat hauling and delivery. Check your area or request a quote.",
+  alternates: {
+    canonical: "/coverage",
+  },
+  openGraph: {
+    title: "Service Areas — Blue Line Marine Transport",
+    description:
+      "Blue Line Marine Transport covers states along the East Coast, from New York to Florida. Door-to-door boat hauling and delivery. Check your area or request a quote.",
+    type: "website",
+    url: "/coverage",
+    images: ["/opengraph-image"],
+  },
 };
 
 /** Coverage page — full treatment with map + region list. */

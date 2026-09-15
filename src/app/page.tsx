@@ -19,7 +19,7 @@ const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 
 /** Per-page metadata for the homepage. */
 export const metadata: Metadata = {
-  title: "Blue Line Marine Transport — Professional Boat Transportation",
+  title: "Professional Boat Transportation",
   description:
     (site.dotNumber && site.insuranceStatement)
       ? "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today."
@@ -28,15 +28,14 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    type: "website",
     title: "Blue Line Marine Transport — Professional Boat Transportation",
     description:
       (site.dotNumber && site.insuranceStatement)
         ? "Licensed & insured boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today."
         : "Professional boat transportation across the East Coast. Powerboat, sailboat, and heavy vessel hauling. Get a free quote today.",
-    siteName: "Blue Line Marine Transport",
-    locale: "en_US",
+    type: "website",
     url: "/",
+    images: ["/opengraph-image"],
   },
 };
 
