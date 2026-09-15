@@ -1,10 +1,13 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import type { Service, Faq } from "@/types/content";
+import type { Service } from "@/types/content";
 import { getServices, getService, getFaqs } from "@/lib/content";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Accordion } from "@/components/ui/Accordion";
 import { QuoteCta } from "@/components/sections/QuoteCta";
+import { ServiceJsonLd } from "@/components/structured-data/JsonLd";
+
+const BASE_URL = "https://bluelinemarinetransport.com";
 
 // ── Static params — one route per service slug ────────────────────────
 
@@ -25,46 +28,21 @@ export async function generateMetadata(
   const service = getService(slug);
 
   if (!service) {
-    return { title: "Service Not Found — Blue Line Marine Transport" };
+    return { title: "Service Not Found" };
   }
 
-  const baseUrl = "https://bluelinemarine.com";
-  const pageUrl = `${baseUrl}/services/${slug}`;
-
   return {
-    title: `${service.title} — Blue Line Marine Transport`,
+    title: service.title,
     description: service.summary,
-    alternates: { canonical: pageUrl },
+    alternates: { canonical: `/services/${slug}` },
     openGraph: {
-      type: "website",
-      title: `${service.title} | Blue Line Marine Transport`,
+      title: `${service.title} — Blue Line Marine Transport`,
       description: service.summary,
-      url: pageUrl,
-      siteName: "Blue Line Marine Transport",
+      type: "website",
+      url: `/services/${slug}`,
+      images: ["/opengraph-image"],
     },
   };
-}
-
-// ── JSON-LD — Service schema per slug ────────────────────────────────
-
-function JsonLd({ service }: { service: Service }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.summary,
-    provider: {
-      "@type": "LocalBusiness",
-      name: "Blue Line Marine Transport",
-    },
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
 }
 
 // ── Page — hero + long description + vessel types + equipment + prep + FAQs ──
@@ -93,7 +71,11 @@ export default async function ServiceDetailPage({ params }: Props) {
 
   return (
     <main id="main-content" role="main">
-      <JsonLd service={service} />
+      <ServiceJsonLd
+        name={service.title}
+        description={service.summary}
+        url={`${BASE_URL}/services/${slug}`}
+      />
 
       {/* Hero variant — title + summary + CTA */}
       <section className="bg-surface-section section-rhythm" aria-label={`${service.title} overview`}>

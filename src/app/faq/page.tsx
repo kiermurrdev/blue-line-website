@@ -4,22 +4,22 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
 import { QuoteCta } from "@/components/sections/QuoteCta";
+import { FaqPageJsonLd } from "@/components/structured-data/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FAQ — Blue Line Marine Transport",
+  title: "FAQ",
   description:
     "Answers to common questions about boat transportation, the quote process, and vessel preparation with Blue Line Marine Transport.",
   alternates: {
     canonical: "/faq",
   },
   openGraph: {
-    type: "website",
     title: "FAQ — Blue Line Marine Transport",
     description:
       "Answers to common questions about boat transportation, the quote process, and vessel preparation with Blue Line Marine Transport.",
-    siteName: "Blue Line Marine Transport",
-    locale: "en_US",
+    type: "website",
     url: "/faq",
+    images: ["/opengraph-image"],
   },
 };
 
@@ -28,9 +28,17 @@ export default function FaqPage() {
   const general = getFaqs("general");
   const quoteProcess = getFaqs("quote-process");
   const prep = getFaqs("prep");
+  const allFaqs = [...general, ...quoteProcess, ...prep];
 
   return (
     <>
+      {/* FAQPage JSON-LD */}
+      <FaqPageJsonLd
+        questions={allFaqs.map((f) => ({
+          question: f.question,
+          answer: f.answer,
+        }))}
+      />
       {/* Hero / H1 */}
       <section className="bg-surface-dark section-rhythm">
         <Container>

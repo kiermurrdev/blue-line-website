@@ -7,9 +7,20 @@ import { getSite } from "@/lib/content";
 import { stripPhoneDigits } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Contact & Quote — Blue Line Marine Transport",
+  title: "Contact & Quote",
   description:
     "Request a free boat transportation quote. Tell us about your vessel and route — we respond within one business day.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact & Quote — Blue Line Marine Transport",
+    description:
+      "Request a free boat transportation quote. Tell us about your vessel and route — we respond within one business day.",
+    type: "website",
+    url: "/contact",
+    images: ["/opengraph-image"],
+  },
 };
 
 const site = getSite();

@@ -13,7 +13,7 @@ const CONFIRMED_STATS: { numeral: string | number; label: string }[] = [];
 
 /** Per-page metadata for the about page. */
 export const metadata: Metadata = {
-  title: "About — Blue Line Marine Transport",
+  title: "About",
   description:
     (site.dotNumber && site.insuranceStatement)
       ? "Learn about Blue Line Marine Transport — licensed & insured boat transportation across the East Coast. Safety, experience, and care on every move."
@@ -22,15 +22,14 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    type: "website",
     title: "About — Blue Line Marine Transport",
     description:
       (site.dotNumber && site.insuranceStatement)
         ? "Learn about Blue Line Marine Transport — licensed & insured boat transportation across the East Coast. Safety, experience, and care on every move."
         : "Learn about Blue Line Marine Transport — professional boat transportation across the East Coast. Safety, experience, and care on every move.",
-    siteName: "Blue Line Marine Transport",
-    locale: "en_US",
+    type: "website",
     url: "/about",
+    images: ["/opengraph-image"],
   },
 };
 

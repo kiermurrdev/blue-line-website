@@ -11,20 +11,19 @@ import { getBoatPrepGuide, getQuoteProcessInfo, getFaqs } from "@/lib/content";
 
 /** Per-page metadata for the process page. */
 export const metadata: Metadata = {
-  title: "How It Works — Blue Line Marine Transport",
+  title: "How It Works",
   description:
     "Learn how Blue Line Marine Transport moves your boat safely: quote, prep & pickup, secure transport, and delivery. Plus a complete boat preparation checklist.",
   alternates: {
     canonical: "/process",
   },
   openGraph: {
-    type: "website",
     title: "How It Works — Blue Line Marine Transport",
     description:
       "Learn how Blue Line Marine Transport moves your boat safely: quote, prep & pickup, secure transport, and delivery. Plus a complete boat preparation checklist.",
-    siteName: "Blue Line Marine Transport",
-    locale: "en_US",
+    type: "website",
     url: "/process",
+    images: ["/opengraph-image"],
   },
 };
 
