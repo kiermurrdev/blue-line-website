@@ -16,7 +16,7 @@ export const faqs: Faq[] = [
   {
     slug: "insurance-coverage",
     question: "Is my boat insured during transport?",
-    answer: "TODO(owner-content)",
+    answer: "Content pending owner confirmation.",
     context: "general",
   },
   {
@@ -29,7 +29,7 @@ export const faqs: Faq[] = [
   {
     slug: "timeline",
     question: "How long does transport take?",
-    answer: "TODO(owner-content)",
+    answer: "Content pending owner confirmation.",
     context: "general",
   },
 
@@ -44,7 +44,7 @@ export const faqs: Faq[] = [
   {
     slug: "quote-response-time",
     question: "How quickly will I hear back?",
-    answer: "TODO(owner-content)",
+    answer: "Content pending owner confirmation.",
     context: "quote-process",
   },
 
@@ -73,13 +73,13 @@ export const faqs: Faq[] = [
   {
     slug: "heavy-permits",
     question: "Do you handle permits for wide loads?",
-    answer: "TODO(owner-content)",
+    answer: "Content pending owner confirmation.",
     context: "prep",
   },
   {
     slug: "heavy-route-survey",
     question: "What is a route survey and do I need one?",
-    answer: "TODO(owner-content)",
+    answer: "Content pending owner confirmation.",
     context: "prep",
   },
 ];
