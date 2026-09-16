@@ -70,7 +70,6 @@ export function Hero({
             {/* H1 — single on page, Archivo display */}
             <h1
               className="font-display text-[clamp(2.25rem,5vw,4rem)] font-bold leading-[1.08] tracking-tight text-foam"
-              style={{ fontFamily: "var(--font-display)" }}
             >
               {title}
             </h1>
