@@ -47,14 +47,6 @@ export function Header() {
 
   return (
     <>
-      {/* Skip link — visible on focus */}
-      <a
-        href="#main-content"
-        className="sr-only absolute left-4 top-4 z-[70] rounded bg-brand px-4 py-2 text-sm font-semibold text-white transition-opacity hover:bg-brand-dark focus:not-sr-only focus:opacity-100"
-      >
-        Skip to main content
-      </a>
-
       <header className={cn("sticky top-0 z-50 w-full transition-colors duration-200", headerBg)}>
         {/* Blue-line rule at bottom of header */}
         <div className={cn("blue-line transition-opacity duration-200", scrolled ? "opacity-100" : "opacity-40")} />

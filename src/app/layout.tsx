@@ -16,6 +16,7 @@ const archivo = Archivo({
   weight: "variable",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
@@ -23,6 +24,7 @@ const inter = Inter({
   weight: "variable",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const BASE_URL = "https://bluelinemarinetransport.com";
