@@ -10,7 +10,7 @@ export const aboutPageContent = {
   },
   story: {
     heading: "Our Story",
-    body: "TODO(owner-content) — founding year, fleet size, team, what sets us apart.",
+    body: "Content pending owner input.",
   },
   values: [
     {
@@ -23,7 +23,7 @@ export const aboutPageContent = {
     },
     {
       title: "Real Experience",
-      description: "TODO(owner-content) — years in business, boats moved, fleet facts.",
+      description: "Content pending owner input.",
     },
   ],
 };

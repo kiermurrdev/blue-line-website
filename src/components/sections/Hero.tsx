@@ -31,7 +31,6 @@ function PlaceholderImage() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-foam/40">
           Hero image — owner-supplied
         </p>
-        <p className="mt-1 text-sm text-steel">TODO(owner-content)</p>
       </div>
     </div>
   );
@@ -52,7 +51,7 @@ export function Hero({
     <section className="relative bg-navy" aria-label="Hero">
       {/* Full-bleed image area with navy scrim */}
       <div className="relative h-[60vh] min-h-[480px] w-full md:h-[75vh] lg:h-[85vh]">
-        {/* Placeholder — TODO(owner-content) for real photo */}
+        {/* Placeholder — awaiting owner-supplied photo */}
         <PlaceholderImage />
 
         {/* Navy scrim overlay — ensures text contrast ≥ 4.5:1 regardless of image */}
